@@ -1,0 +1,14 @@
+package com.eventmanagement.www.services;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import com.eventmanagement.www.models.RSVP;
+
+public interface RSVPServiceIf {
+    List<RSVP> getAllRSVPs();
+    RSVP createRSVP(RSVP rsvp);
+    Optional<RSVP> getRSVPById(Long id);
+    void deleteRSVP(Long id);
+}

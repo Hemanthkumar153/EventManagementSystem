@@ -1,0 +1,41 @@
+package com.eventmanagement.www.services;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.eventmanagement.ww.repository.EventRepository;
+import com.eventmanagement.www.models.Event;
+
+@Service
+public class EventService implements EventServiceIf {
+    @Autowired
+    private EventRepository eventRepository;
+
+    @Override
+    public List<Event> getAllEvents() {
+        return eventRepository.findAll();
+    }
+
+    @Override
+    public Event createEvent(Event event) {
+        return eventRepository.save(event);
+    }
+
+    @Override
+    public Optional<Event> updateEvent(Long id, Event event) {
+        if (eventRepository.existsById(id)) {
+            event.setId(id);
+            return Optional.of(eventRepository.save(event));
+        }
+        return Optional.empty();
+    }
+
+    @Override
+    public void deleteEvent(Long id) {
+        eventRepository.deleteById(id);
+    }
+}

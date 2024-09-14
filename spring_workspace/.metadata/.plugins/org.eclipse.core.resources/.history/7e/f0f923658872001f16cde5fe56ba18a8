@@ -1,0 +1,14 @@
+package com.eventmanagement.www.services;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import com.eventmanagement.www.models.Event;
+
+public interface EventServiceIf {
+    List<Event> getAllEvents();
+    Event createEvent(Event event);
+    Optional<Event> getEventById(Long id);
+    void deleteEvent(Long id);
+}

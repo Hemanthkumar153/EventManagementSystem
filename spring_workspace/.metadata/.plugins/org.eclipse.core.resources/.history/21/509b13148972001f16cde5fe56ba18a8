@@ -1,0 +1,14 @@
+package com.eventmanagement.www.services;
+
+
+import java.util.List;
+import java.util.Optional;
+
+import com.eventmanagement.www.models.User;
+
+public interface UserServiceIf {
+    List<User> getAllUsers();
+    User createUser(User user);
+    Optional<User> getUserById(Long id);
+    void deleteUser(Long id);
+}
